@@ -67,8 +67,13 @@ public class PlayerController : MonoBehaviour
     {
         if(context.phase == InputActionPhase.Started && isGround)
         {
-            rigid.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+            Jump(jumpForce);
         }
+    }
+
+    public void Jump(float _force)
+    {
+        rigid.AddForce(Vector2.up * _force, ForceMode.Impulse);
     }
 
     void Rotate()
