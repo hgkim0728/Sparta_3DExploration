@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d3a5330c70ac942bd1257500ebc906, type: 3}
+  m_Name: JumpPlatform
+  m_EditorClassIdentifier: 
+  itemName: "\uC810\uD504\uB300"
+  itemDescription: "\uBC1F\uC73C\uBA74 \uB354 \uB192\uC774 \uC810\uD504\uD560 \uC218
+    \uC788\uC2B5\uB2C8\uB2E4."
+  itemType: 3
+  itemPrefab: {fileID: 0}
+  itemStats: []
+  canStack: 0
+  maxStack: 0

@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Interaction : MonoBehaviour
 {
@@ -9,16 +9,56 @@ public class Interaction : MonoBehaviour
     [SerializeField, Tooltip("물체를 감지하는 최대 거리")] private float maxCheckDistance;
     [SerializeField] private LayerMask interactObjeckLayer;
 
-    
+    private GameObject curInteractGameObject;
+    private IInteractable curInteractable;
 
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Text promptText;
+    [SerializeField] private Transform interactRayPoint;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        CheckInteract();
+    }
+
+    void CheckInteract()
+    {
+        if(Time.time - lastCheckTime > checkRate)
+        {
+            Ray ray = new Ray(interactRayPoint.position, interactRayPoint.forward);
+            RaycastHit hit;
+
+            if(Physics.Raycast(ray, out hit, maxCheckDistance, interactObjeckLayer))
+            {
+                if(hit.collider.gameObject != curInteractGameObject)
+                {
+                    curInteractGameObject = hit.collider.gameObject;
+                    curInteractable = hit.collider.GetComponent<IInteractable>();
+                    SetPromptText();
+                }
+            }
+            else
+            {
+                curInteractGameObject = null;
+                curInteractable = null;
+                promptText.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    void SetPromptText()
+    {
+        promptText.gameObject.SetActive(true);
+        promptText.text = curInteractable.GetInteractPrompt();
+    }
+
+    public void OnInteractInput(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Started && curInteractable != null)
+        {
+            curInteractable.OnInteract();
+            curInteractGameObject = null;
+            curInteractable = null;
+            promptText.gameObject.SetActive(false);
+        }
     }
 }

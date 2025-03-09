@@ -38,5 +38,8 @@ public class Player : MonoBehaviour
         {
             Destroy(instance);
         }
+
+        condition = GetComponent<PlayerCondition>();
+        controller = GetComponent<PlayerController>();
     }
 }
