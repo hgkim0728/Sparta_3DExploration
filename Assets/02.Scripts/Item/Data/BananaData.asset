@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d3a5330c70ac942bd1257500ebc906, type: 3}
   m_Name: BananaData
   m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: d80eb8617e195544abc6704ca3a1948b, type: 3}
   itemName: "\uBC14\uB098\uB098"
   itemDescription: "\uBC14\uB098\uB098\uC785\uB2C8\uB2E4. \uCCB4\uB825\uC744 \uD68C\uBCF5\uC2DC\uCF1C\uC90D\uB2C8\uB2E4."
   itemType: 0
   itemPrefab: {fileID: 9048689129871170457, guid: 99bad8e6e32defe4286aef2a9e1e5276, type: 3}
   itemStats:
   - consumableType: 0
-    itmeStat: 10
+    value: 20
   canStack: 1
   maxStack: 0

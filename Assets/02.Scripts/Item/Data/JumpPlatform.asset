@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d3a5330c70ac942bd1257500ebc906, type: 3}
   m_Name: JumpPlatform
   m_EditorClassIdentifier: 
+  itemIcon: {fileID: 0}
   itemName: "\uC810\uD504\uB300"
   itemDescription: "\uBC1F\uC73C\uBA74 \uB354 \uB192\uC774 \uC810\uD504\uD560 \uC218
     \uC788\uC2B5\uB2C8\uB2E4."
-  itemType: 3
+  itemType: 1
   itemPrefab: {fileID: 0}
   itemStats: []
   canStack: 0

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Vector2 curMoveInput = Vector2.zero;    // 이동키 입력값
     private Vector3 moveDir = Vector3.zero;     // 플레이어 이동 방향
+
+    [HideInInspector] public Action inventory;
 
     private readonly int IsMove = Animator.StringToHash("IsMove");
     private readonly int IsJump = Animator.StringToHash("IsJump");
@@ -105,5 +109,31 @@ public class PlayerController : MonoBehaviour
 
         anim.SetBool(IsJump, true);
         return false;
+    }
+
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Started)
+        {
+            inventory?.Invoke();
+        }
+    }
+
+    public void UseSpeedItem(float _time, float _value)
+    {
+        StartCoroutine(SpeedUp(_time, _value));
+    }
+
+    private IEnumerator SpeedUp(float _tiem, float _value)
+    {
+        moveSpeed += _value;
+
+        while(_tiem > 0)
+        {
+            _tiem -= Time.deltaTime;
+            yield return null;
+        }
+
+        moveSpeed -= _value;
     }
 }

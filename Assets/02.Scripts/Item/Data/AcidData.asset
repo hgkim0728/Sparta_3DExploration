@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d3a5330c70ac942bd1257500ebc906, type: 3}
   m_Name: AcidData
   m_EditorClassIdentifier: 
+  itemIcon: {fileID: 0}
   itemName: Acid
   itemDescription: "\uB2FF\uC73C\uBA74 \uC9C0\uC18D\uC801\uC73C\uB85C \uD53C\uD574\uB97C
     \uC785\uD788\uB294 \uC624\uBE0C\uC81D\uD2B8\uC785\uB2C8\uB2E4."
-  itemType: 3
+  itemType: 1
   itemPrefab: {fileID: 0}
   itemStats: []
   canStack: 0

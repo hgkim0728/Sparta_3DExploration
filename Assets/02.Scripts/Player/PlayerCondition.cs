@@ -9,7 +9,7 @@ public interface IDamagable
 
 public class PlayerCondition : MonoBehaviour, IDamagable
 {
-    public UICondition uiCondition;
+    [HideInInspector] public UICondition uiCondition;
 
     Condition health { get { return uiCondition.health; } }
 

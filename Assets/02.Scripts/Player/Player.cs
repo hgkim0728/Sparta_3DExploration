@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         set { controller = value; }
     }
 
-    public ItemData itemData;
+    [HideInInspector] public ItemData itemData;
     public Action addItem;
 
     public Transform dropPosition;
