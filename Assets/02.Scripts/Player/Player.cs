@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -21,6 +22,11 @@ public class Player : MonoBehaviour
         get { return controller; }
         set { controller = value; }
     }
+
+    public ItemData itemData;
+    public Action addItem;
+
+    public Transform dropPosition;
 
     private void Awake()
     {

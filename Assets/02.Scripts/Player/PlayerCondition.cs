@@ -1,18 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerCondition : MonoBehaviour
+public interface IDamagable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public void GetDamage(int _damage);
+}
 
-    // Update is called once per frame
+public class PlayerCondition : MonoBehaviour, IDamagable
+{
+    public UICondition uiCondition;
+
+    Condition health { get { return uiCondition.health; } }
+
+    public event Action onTakeDamage;
+
     void Update()
     {
-        
+        if(health.CurValue < health.MaxValue)
+        {
+            health.Add(health.PassiveValue);
+        }
+    }
+
+    public void Heal(float _value)
+    {
+        health.Add(_value);
+    }
+
+    public void GetDamage(int _damage)
+    {
+        health.Subtract(_damage);
+        onTakeDamage?.Invoke();
     }
 }
