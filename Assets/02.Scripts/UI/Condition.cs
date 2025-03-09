@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Condition : MonoBehaviour
 {
-    private float curValue;  // 이 속성의 현재 값
+    [SerializeField]private float curValue;  // 이 속성의 현재 값
     public float CurValue {  get { return curValue; } }
     [SerializeField, Tooltip("게임을 시작했을 때 적용할 값")] private float startValue;
     [SerializeField, Tooltip("이 속성의 최대 값")] private float maxValue;

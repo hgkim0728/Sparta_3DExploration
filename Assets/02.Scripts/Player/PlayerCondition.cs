@@ -19,7 +19,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     {
         if(health.CurValue < health.MaxValue)
         {
-            health.Add(health.PassiveValue);
+            health.Add(health.PassiveValue * Time.deltaTime);
         }
     }
 
@@ -31,6 +31,15 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     public void GetDamage(int _damage)
     {
         health.Subtract(_damage);
+        if(health.CurValue <= 0)
+        {
+            Die();
+        }
         onTakeDamage?.Invoke();
+    }
+
+    private void Die()
+    {
+        Debug.Log("die");
     }
 }
